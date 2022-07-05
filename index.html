@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="utf-8">
+    <meta name="title" content="Skyrim Character Creation">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Guilherme Rodrigues Martins">
+    <meta name="description" content="A Tool to create a full Skyrim Character Record for Skyrim Special">
+    <link rel="stylesheet" type="text/css" href="./assets/design/layout.css">
+    <link rel="stylesheet" type="text/css" href="./assets/design/theme.css">
+    <title> Skyrim Character Creator </title>
+</head>
+
+<body>
+    <!-- CONTAINER -->
+<section id="container">
+    <!-- CHARACTER RECORD CONVERTED -->
+    <section id="character-record" class="hide"> 
+        <section>
+            <h1 class="title"> Character Record  </h1>
+            <button id="show-form-button" onclick="showForm()"> Edit </button>
+        </section>
+
+        <fieldset>
+            <h2 class="subtitle"> [Name] <p id="record-name" class="simple-text"> </p> </h2>
+            <h2 class="subtitle"> [Profession] <p id="record-profession" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Sex] <p id="record-sex" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Race] <p id="record-race" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Alignment] <p id="record-alignment" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Civil War Side] <p id="record-civil-war-side" class="simple-text"> </p></h2>
+        </fieldset>
+        
+        <fieldset>
+            <h2 class="subtitle"> [Points Distribution] <p id="record-points-distribution" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Allies Factions] <p id="record-allies-factions" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Enemies Factions] <p id="record-enemies-factions" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Mage Skills] <p id="record-mage-factions" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Warrior Skills] <p id="record-warrior-factions" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Thief Skills] <p id="record-thief-factions" class="simple-text"> </p></h2>
+        </fieldset>
+        
+        <fieldset>
+            <h2 class="subtitle"> [Guardian Stone] <p id="record-guardian-stone" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Allied Deity] <p id="record-allied-deity" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Enemy Deity] <p id="record-enemy-deity" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Ally Daedric Prince] <p id="record-ally-daedric-prince" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Enemy Daedric Prince] <p id="record-enemy-daedric-prince" class="simple-text"> </p></h2>
+            <h2 class="subtitle"> [Houses] <p id="record-houses" class="simple-text"> </p></h2> 
+            <h2 class="subtitle"> [Alternative House] <p id="record-other-house" class="simple-text"> </p></h2> 
+            <h2 class="subtitle"> [Spouse] <p id="record-spouse" class="simple-text"> </p></h2> 
+            <h2 class="subtitle"> [First Son/Daughter] <p id="record-first-son-daughter" class="simple-text"> </p></h2> 
+            <h2 class="subtitle"> [Second Son/Daughter] <p id="record-second-son-daughter" class="simple-text"> </h2>
+        </fieldset>
+
+        <fieldset> 
+            <h2 class="subtitle backstory-text"> [Backstory] <p id="record-backstory" class="simple-text"> </p></h2>
+        </fieldset>
+    </section>
+
+    <!-- MENU -->
+    <header id="menu" class="menu-style">
+        <img id="logo" src="./assets/images/skyrim-logo.png" alt="Skyrim Logo Image">
+        <h1 id="main-title"> Skyrim Character Creator </h1>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+        <form id="character-info">
+            <!-- ABOUT -->
+            <fieldset id="about" class="content-block"> 
+                <legend> Basic Info </legend>
+                <fieldset id="about-yourself" class="content-block">
+                    <!-- NAME -->
+                    <label for="name"> Name </label>
+                    <input type="text" id="char-name" name="char-name" maxlength="15" required> 
+
+                    <!-- PROFESSION -->
+                    <label for="profession"> Profession </label>
+                    <input type="text" id="profession" name="profession" maxlength="25" required>
+
+                    <!-- SEX -->
+                    <label for="sex"> Sex </label>
+                    <select id="sex" name="sex" required>
+                        <option value="" selected> Choose </option>
+                        <option value="Male"> Male </option>
+                        <option value="Female"> Female </option>
+                    </select>
+
+                    <!-- RACE -->
+                    <label for="race"> Race </label>
+                    <select id="race" name="race" required>
+                        <option value="" selected> Choose </option>
+                        <option value="Altmer (High Elf)"> Altmer (High Elf) </option>
+                        <option value="Argonian"> Argonian </option>
+                        <option value="Bosmer (Wood Elf)"> Bosmer (Wood Elf) </option>
+                        <option value="Breton"> Breton </option>
+                        <option value="Dunmer (Dark Elf)"> Dunmer (Dark Elf) </option>
+                        <option value="Imperial"> Imperial </option>
+                        <option value="Khajiit"> Khajiit </option>
+                        <option value="Nord"> Nord </option>
+                        <option value="Orsimer (Orc)"> Orsimer (Orc) </option>
+                        <option value="Redguard"> Redguard </option>
+                        <option value="Custom (Mods)"> Custom (Mod) </option>
+                    </select>
+
+                    <!-- ALIGNMENT -->
+                    <label for="alignment"> Alignment </label>
+                    <select id="alignment" name="aligment" required>
+                        <option value="" selected> Choose </option>
+                        <option value="Lawful Good"> Lawful Good </option>
+                        <option value="Lawful Neutral "> Lawful Neutral </option>
+                        <option value="Lawful Evil"> Lawful Evil </option>
+                        <option value="Neutral Good"> Neutral Good </option>
+                        <option value="True Neutral"> True Neutral </option>
+                        <option value="Neutral Evil"> Neutral Evil </option>
+                        <option value="Chaotic Good"> Chaotic Good </option>
+                        <option value="Chaotic Neutral"> Chaotic Neutral </option>
+                        <option value="Chaotic Evil"> Chaotic Evil </option>
+                    </select>
+
+                    <!-- CIVIL WAR SIDE  -->
+                    <label for="civil-war-side"> Civil War Side </label>
+                    <select id="civil-war-side" name="civil-war-side" required> 
+                        <option value="Neutral" selected> Neutral </option>
+                        <option value="Imperial Legion"> Imperial Legion </option>
+                        <option value="Stormcloacks"> Stormcloaks </option>
+                    </select>
+
+                    <!-- POINTS DISTRIBUTION  -->
+                    <label for="points-distribution"> Points - Magicka, Health, Stamina </label>
+                    <select id="points-distribution" name="points-distribution" required> 
+                        <option value="" selected> Choose </option>
+                        <option value="Default: 1,1,1"> Default: 1,1,1 </option>
+                        <option value="Thief: 1,1,2"> Thief: 1,1,2 </option>
+                        <option value="Barbarian: 1,2,1"> Barbarian: 1,2,1 </option>
+                        <option value="Knight: 1,2,2"> Knight: 1,2,2 </option>
+                        <option value="Mage: 2,1,1"> Mage: 2,1,1 </option>
+                        <option value="Battlemage/Paladin: 2,2,1"> Battlemage/Paladin: 2,2,1 </option>
+                        <option value="Assassin: 2,1,2"> Assassin: 2,1,2 </option>
+                    </select>
+
+                    <!-- GUARDIAN STONE -->
+                    <label for="guardian-stone"> Guardian Stones </label>
+                    <select id="guardian-stone" name="guardian-stone" required> 
+                        <option value="" selected> Choose </option>
+                        <option value="None"> None </option>
+                        <option value="The Thief Stone"> Thief (+20% Steatlh Skills)</option>
+                        <option value="The Mage Stone"> Mage (+20% Magic Skills)</option>
+                        <option value="The Warrior Stone"> Warrior (+20% Warrior Skills) </option>
+                        <option value="The Ritual Stone"> Ritual (Resurrect Corpses once a day) </option>
+                        <option value="The Atronach Stone"> Atronach (Absorb spells / +Mana / -Mana Regen) </option>
+                        <option value="The Shadow Stone"> Shadow (Invisibility for 60 Secs once a day) </option>
+                        <option value="The Steed Stone"> Steed (+Carry Weight / No armor weight) </option>
+                        <option value="The Lady Stone"> Lady (Health / Stamina Regen) </option>
+                        <option value="The Apprentice Stone"> Apprentice (Magic Regeneration / Magic Weakness) </option>
+                        <option value="The Tower Stone"> Tower (Unlock 1 expert lock once a day) </option>
+                        <option value="The Lover Stone"> Lover (+15% All Skills)</option>
+                        <option value="The Serpent Stone"> Serpent (Paralyze / Poison Damage once a day) </option>
+                        <option value="The Lord Stone"> Lord (Damage / Magic Resistance) </option>
+                    </select>
+                </fieldset>
+            </fieldset>
+
+            <!-- FACTIONS -->
+            <fieldset id="factions" class="content-block">
+                <legend> Factions </legend>
+                <!-- ALLIES FACTIONS -->
+                <fieldset id="allies-factions" class="content-block"> 
+                    <legend> Allies Factions </legend>             
+                    <label for="bards"> 
+                        <input type="checkbox" id="bards" name="allies-factions" value="Bards College"> Bards College
+                    </label>
+                    <label for="blades"> 
+                        <input type="checkbox" id="blades" name="allies-factions" value="The Blades"> Blades  
+                    </label>
+                    <label for="greybeards"> 
+                        <input type="checkbox" id="greybeards" name="allies-factions" value="The Greybeards"> Greybeards 
+                    </label>
+                    <label for="winterhold"> 
+                        <input type="checkbox" id="winterhold" name="allies-factions" value="College of Winterhold"> College of Winterhold 
+                    </label>
+                    <label for="companions"> 
+                        <input type="checkbox" id="companions" name="allies-factions" value="The Companions"> The Companions 
+                    </label>             
+                    <label for="namira"> 
+                        <input type="checkbox" id="namira" name="allies-factions" value="The Coven of Namira"> The Coven of Namira 
+                    </label>             
+                    <label for="telvanni"> 
+                        <input type="checkbox" id="telvanni" name="allies-factions" value="House Telvanni"> House Telvanni 
+                    </label>              
+                    <label for="brotherhood"> 
+                        <input type="checkbox" id="brotherhood" name="allies-factions" value="Dark Brotherhood"> Dark Brotherhood 
+                    </label>              
+                    <label for="nightingales"> 
+                        <input type="checkbox" id="nightingales" name="allies-factions" value="Nightingales"> Nightingales 
+                    </label>
+                    <label for="thieves"> 
+                        <input type="checkbox" id="thieves" name="allies-factions" value="The Thieves Guild"> Thieves Guild 
+                    </label>
+                    <label for="tribal"> 
+                        <input type="checkbox" id="tribal" name="allies-factions" value="Tribal Orcs"> Tribal Orcs 
+                    </label>
+                    <label for="dawnguard"> 
+                        <input type="checkbox" id="dawnguard" name="allies-factions" value="Dawnguard"> Dawnguard 
+                    </label>      
+                    <label for="volkihar"> 
+                        <input type="checkbox" id="volkihar" name="allies-factions" value="Volkihar Clan"> Volkihar Clan 
+                    </label>
+                </fieldset> 
+                
+                <!-- ENEMIES FACTIONS -->
+                <fieldset id="enemies-factions" class="content-block"> 
+                    <legend> Enemies Factions </legend>             
+                    <label for="bards"> 
+                        <input type="checkbox" id="bards" name="enemies-factions" value="Bards College"> Bards College
+                    </label>
+                    <label for="blades"> 
+                        <input type="checkbox" id="blades" name="enemies-factions" value="The Blades"> Blades  
+                    </label>
+                    <label for="greybeards"> 
+                        <input type="checkbox" id="greybeards" name="enemies-factions" value="The Greybeards"> Greybeards 
+                    </label>
+                    <label for="winterhold"> 
+                        <input type="checkbox" id="winterhold" name="enemies-factions" value="College of Winterhold"> College of Winterhold 
+                    </label>
+                    <label for="companions"> 
+                        <input type="checkbox" id="companions" name="enemies-factions" value="The Companions"> The Companions 
+                    </label>             
+                    <label for="namira"> 
+                        <input type="checkbox" id="namira" name="enemies-factions" value="The Coven of Namira"> The Coven of Namira 
+                    </label>             
+                    <label for="telvanni"> 
+                        <input type="checkbox" id="telvanni" name="enemies-factions" value="House Telvanni"> House Telvanni 
+                    </label>              
+                    <label for="brotherhood"> 
+                        <input type="checkbox" id="brotherhood" name="enemies-factions" value="Dark Brotherhood"> Dark Brotherhood 
+                    </label>              
+                    <label for="nightingales"> 
+                        <input type="checkbox" id="nightingales" name="enemies-factions" value="Nightingales"> Nightingales 
+                    </label>
+                    <label for="thieves"> 
+                        <input type="checkbox" id="thieves" name="enemies-factions" value="The Thieves Guild"> Thieves Guild 
+                    </label>
+                    <label for="tribal"> 
+                        <input type="checkbox" id="tribal" name="enemies-factions" value="Tribal Orcs"> Tribal Orcs 
+                    </label>
+                    <label for="dawnguard"> 
+                        <input type="checkbox" id="dawnguard" name="enemies-factions" value="Dawnguard"> Dawnguard 
+                    </label>      
+                    <label for="volkihar"> 
+                        <input type="checkbox" id="volkihar" name="enemies-factions" value="Volkihar Clan"> Volkihar Clan 
+                    </label>
+                </fieldset>
+            </fieldset>
+
+            <!-- SKILLS -->
+            <fieldset id="skills" class="content-block"> 
+                <legend> Skills </legend>
+                <!-- MAGE SKILLS -->
+                <fieldset id="mage-skills" class="content-block"> 
+                    <legend> Mage Skills </legend>
+                    <label for="illusion"> 
+                        <input type="checkbox" id="illusion" name="mage-skills" value="Illusion"> Illusion 
+                    </label>           
+                    <label for="conjuration"> 
+                        <input type="checkbox" id="conjuration" name="mage-skills" value="Conjuration"> Conjuration  
+                    </label>               
+                    <label for="destruction">
+                        <input type="checkbox" id="destruction" name="mage-skills" value="Destruction"> Destruction 
+                    </label>
+                    <label for="restoration"> 
+                        <input type="checkbox" id="restoration" name="mage-skills" value="Restoration"> Restoration 
+                    </label>
+                    <label for="alteration"> 
+                        <input type="checkbox" id="alteration" name="mage-skills" value="Alteration"> Alteration 
+                    </label>
+                    <label for="enchanting"> 
+                        <input type="checkbox" id="enchanting" name="mage-skills" value="Enchanting"> Enchanting 
+                    </label>
+                </fieldset>
+
+                <!-- WARRIOR SKILLS  -->
+                <fieldset id="warrior-skills" class="content-block"> 
+                    <legend> Warrior Skills </legend>
+                    <label for="smithing"> 
+                        <input type="checkbox" id="smithing" name="warrior-skills" value="Smithing"> Smithing 
+                    </label>
+                    <label for="heavyarmor"> 
+                        <input type="checkbox" id="heavy-armor" name="warrior-skills" value="Heavy-Armor"> Heavy-Armor  
+                    </label>
+                    <label for="block">
+                        <input type="checkbox" id="block" name="warrior-skills" value="Block"> Block 
+                    </label>
+                    <label for="twohanded"> 
+                        <input type="checkbox" id="two-handed" name="warrior-skills" value="Two-Handed"> Two-Handed 
+                    </label>
+                    <label for="onehanded"> 
+                        <input type="checkbox" id="one-handed" name="warrior-skills" value="One-Handed"> One-Handed 
+                    </label>  
+                    <label for="archery"> 
+                        <input type="checkbox" id="archery" name="warrior-skills" value="Archery"> Archery 
+                    </label>
+                </fieldset>
+
+                <!-- THIEF SKILLS -->
+                <fieldset id="thief-skills" class="content-block"> 
+                    <legend> Thief Skills </legend>
+                    <label for="lightarmor"> 
+                        <input type="checkbox" id="light-armor" name="thief-skills" value="Light-Armor"> Light-Armor 
+                    </label>
+                    <label for="sneak"> 
+                        <input type="checkbox" id="sneak" name="thief-skills" value="Sneak"> Sneak 
+                    </label>
+                    <label for="lockpicking"> 
+                        <input type="checkbox" id="lockpicking" name="thief-skills" value="Lockpicking"> Lockpicking 
+                    </label>
+                    <label for="pickpocket"> 
+                        <input type="checkbox" id="pickpocket" name="thief-skills" value="Pickpocket"> Pickpocket 
+                    </label>
+                    <label for="speech"> 
+                        <input type="checkbox" id="speech" name="thief-skills" value="Speech"> Speech 
+                    </label>
+                    <label for="alchemy"> 
+                        <input type="checkbox" id="alchemy" name="thief-skills" value="Alchemy"> Alchemy 
+                    </label>
+                </fieldset>
+            </fieldset>
+
+            <!-- BELIEFS -->
+            <fieldset id="beliefs" class="content-block">
+            <legend> Beliefs </legend>
+                <fieldset id="divines" class="content-block"> 
+                    <legend> The Divines </legend>
+                    <!-- ALLY DEITY -->
+                    <label for="allied-deity"> Allied Deity </label>
+                    <select id="allied-deity" name="allied-deity" required> 
+                        <option value="" selected> Choose </option>
+                        <option value="None"> None </option>
+                        <option value="Akatosh (Time)"> Akatosh (Time) </option>
+                        <option value="Arkay (Life and Death)"> Arkay (Life and Death) </option>
+                        <option value="Dibella (Beauty and Love)"> Dibella (Beauty and Love) </option>
+                        <option value="Julianos (Wisdom and Logic)"> Julianos (Wisdom and Logic) </option>
+                        <option value="Kynareth (Sky and Elements)"> Kynareth (Sky and Elements) </option>
+                        <option value="Mara (Love and Compassion)"> Mara (Love and Compassion) </option>
+                        <option value="Stendarr (Mercy and Justice)"> Stendarr (Mercy and Justice) </option>
+                        <option value="Talos (Mankind)"> Talos (Mankind) </option>
+                        <option value="Zenithar (Work and Commerce)"> Zenithar (Work and Commerce) </option>
+                        <option value="Follow All Divines"> Follow All Divines </option>
+                    </select>
+
+                    <!-- ENEMY DEITY -->
+                    <label for="enemy-deity"> Enemy Deity </label>
+                    <select id="enemy-deity" name="enemy-deity" required> 
+                        <option value="" selected> Choose </option>
+                        <option value="None"> None </option>
+                        <option value="Akatosh (Time)"> Akatosh (Time) </option>
+                        <option value="Arkay (Life and Death)"> Arkay (Life and Death) </option>
+                        <option value="Dibella (Beauty and Love)"> Dibella (Beauty and Love) </option>
+                        <option value="Julianos (Wisdom and Logic)"> Julianos (Wisdom and Logic) </option>
+                        <option value="Kynareth (Sky and Elements)"> Kynareth (Sky and Elements) </option>
+                        <option value="Mara (Love and Compassion)"> Mara (Love and Compassion) </option>
+                        <option value="Stendarr (Mercy and Justice"> Stendarr (Mercy and Justice) </option>
+                        <option value="Talos (Mankind)"> Talos (Mankind) </option>
+                        <option value="Zenithar (Work and Commerce)"> Zenithar (Work and Commerce) </option>
+                        <option value="Hate All Divines"> Hate All Divines </option>
+                        <option value="Hate Talos"> Hate Talos </option>
+                    </select>
+                </fieldset>
+
+                <fieldset id="daedric-princes" class="content-block"> 
+                    <legend> Daedric Princes </legend>
+                    <!-- ALLY DAEDRIC PRINCE -->
+                    <label for="ally-daedric-prince"> Ally Daedric Prince </label>
+                    <select id="ally-daedric-prince" name="ally-daedric-prince" required> 
+                        <option value="" selected> Choose </option>
+                        <option value="None"> None </option>
+                        <option value="Azura (Day and Night)"> Azura (Day and Night) </option>
+                        <option value="Boethiah (Deceit and Conspiracy)"> Boethiah (Deceit and Conspiracy) </option>
+                        <option value="Clavicus Vile (Pacts and Bargains)"> Clavicus Vile (Pacts and Bargains) </option>
+                        <option value="Hermaeus Mora (Knowledge)"> Hermaeus Mora (Knowledge)</option>
+                        <option value="Hircine (Hunt and Sports)"> Hircine (Hunt and Sports) </option>
+                        <option value="Jyggalag (Logic and Order)"> Jyggalag (Logic and Order) </option>
+                        <option value="Malacath (Protector of Ostracized)"> Malacath (Protector of Ostracized) </option>
+                        <option value="Mehrunes Dagon (Destruction and Violence)"> Mehrunes Dagon (Destruction and Violence) </option>
+                        <option value="Mephala (Manipulations and Unknown plots)"> Mephala (Manipulations and Unknown plots) </option>
+                        <option value="Meridia (Energy and Living Things)"> Meridia (Energy and Living Things) </option>
+                        <option value="Molag Bal (Domination and Slavement)"> Molag Bal (Domination and Slavement) </option>
+                        <option value="Namira (Repulsive Things)"> Namira (Repulsive Things) </option>
+                        <option value="Nocturnal (Night and Darkness)"> Nocturnal (Night and Darkness) </option>
+                        <option value="Peryite (Pestilence)"> Peryite (Pestilence) </option>
+                        <option value="Sanguine (Hedonism and Debauchery)"> Sanguine (Hedonism and Debauchery) </option>
+                        <option value="Sheogorath (Madness)"> Sheogorath (Madness) </option>
+                        <option value="Vaermina (Dreams and Nightmares)"> Vaermina (Dreams and Nightmares) </option>
+                        <option value="All Daedric, Except Meridia"> All Daedric, Except Meridia </option>
+                    </select>
+
+                    <!-- ENEMY DAEDRIC PRINCE -->
+                    <label for="enemy-daedric-prince"> Enemy Daedric Prince </label>
+                    <select id="enemy-daedric-prince" name="enemy-daedric-prince" required> 
+                        <option value="" selected> Choose </option>
+                        <option value="None"> None </option>
+                        <option value="Azura (Day and Night)"> Azura (Day and Night) </option>
+                        <option value="Boethiah (Deceit and Conspiracy)"> Boethiah (Deceit and Conspiracy) </option>
+                        <option value="Clavicus Vile (Pacts and Bargains)"> Clavicus Vile (Pacts and Bargains) </option>
+                        <option value="Hermaeus Mora (Knowledge)"> Hermaeus Mora (Knowledge)</option>
+                        <option value="Hircine (Hunt and Sports)"> Hircine (Hunt and Sports) </option>
+                        <option value="Jyggalag (Logic and Order)"> Jyggalag (Logic and Order) </option>
+                        <option value="Malacath (Protector of Ostracized)"> Malacath (Protector of Ostracized) </option>
+                        <option value="Mehrunes Dagon (Destruction and Violence)"> Mehrunes Dagon (Destruction and Violence) </option>
+                        <option value="Mephala (Manipulations and Unknown plots)"> Mephala (Manipulations and Unknown plots) </option>
+                        <option value="Meridia (Energy and Living Things)"> Meridia (Energy and Living Things) </option>
+                        <option value="Molag Bal (Domination and Slavement)"> Molag Bal (Domination and Slavement) </option>
+                        <option value="Namira (Repulsive Things)"> Namira (Repulsive Things) </option>
+                        <option value="Nocturnal (Night and Darkness)"> Nocturnal (Night and Darkness) </option>
+                        <option value="Peryite (Pestilence)"> Peryite (Pestilence) </option>
+                        <option value="Sanguine (Hedonism and Debauchery)"> Sanguine (Hedonism and Debauchery) </option>
+                        <option value="Sheogorath (Madness)"> Sheogorath (Madness) </option>
+                        <option value="Vaermina (Dreams and Nightmares)"> Vaermina (Dreams and Nightmares) </option>
+                        <option value="All Daedric, Except Meridia"> All Daedric, Except Meridia </option>
+                    </select>
+                </fieldset>
+            </fieldset>  
+
+            <!-- FAMILY -->
+            <fieldset id-="children" class="content-block">
+                <legend> Family </legend> 
+                <!-- SPOUSE -->
+                <label for="spouse"> Spouse </label>
+                <select id="spouse" name="spouse" required> 
+                    <option value=""> Choose </option>
+                    <option value="none"> None </option>
+                    <option value="(Female Nord) Aela, the Huntress"> (Female Nord) Aela, the Huntress </option>
+                    <option value="(Female Nord) Aeri"> (Female Nord) Aeri </option>
+                    <option value="(Female Redguard) Anwen"> (Female Redguard) Anwen </option>
+                    <option value="(Female Dunmer) Avrusa Sarethi "> (Female Dunmer) Avrusa Sarethi </option>
+                    <option value="(Female Orc) Borgakh, the Steel Heart"> (Female Orc) Borgakh, the Steel Heart </option>
+                    <option value="(Female Dunmer) Brelyna Maryon"> (Female Dunmer) Brelyna Maryon </option>
+                    <option value="(Female Imperial) Camilla Valerius"> (Female Imperial) Camilla Valerius </option>
+                    <option value="(Female Dunmer) Dravynea, the Stoneweaver"> (Female Dunmer) Dravynea, the Stoneweaver </option>
+                    <option value="(Female Orc) Ghorza gra-Bagol"> (Female Orc) Ghorza gra-Bagol </option>
+                    <option value="(Female Imperial) Gilfre"> (Female Imperial) Gilfre </option>
+                    <option value="(Female Nord) Hilund"> (Female Nord) Hilund </option>
+                    <option value="(Female Nord) Iona"> (Female Nord) Iona </option>
+                    <option value="(Female Dunmer) Jenassa"> (Female Dunmer) Jenassa </option>
+                    <option value="(Female Nord) Jordis, the Sword-Maiden"> (Female Nord) Jordis, the Sword-Maiden </option>
+                    <option value="(Female Nord) Lydia"> (Female Nord) Lydia </option>
+                    <option value="(Female Nord) Mjoll, the Lioness"> (Female Nord) Mjoll, the Lioness </option>
+                    <option value="(Female Nord) Morwen"> (Female Nord) Morwen  </option>
+                    <option value="(Female Breton) Muiri"> (Female Breton) Muiri </option>
+                    <option value="(Female Nord) Njada Stonearm"> (Female Nord) Njada Stonearm </option>
+                    <option value="(Female Nord) Orla"> (Female Nord) Orla </option>
+                    <option value="(Female Redguard) Rayya"> (Female Redguard) Rayya </option>
+                    <option value="(Female Imperial) Ria"> (Female Imperial) Ria </option>
+                    <option value="(Female Breton) Senna"> (Female Breton) Senna </option>
+                    <option value="(Female Argonian) Shahvee"> (Female Argonian) Shahvee </option>
+                    <option value="(Female Nord) Sylgja"> (Female Nord) Sylgja </option>
+                    <option value="(Female Altmer) Taarie"> (Female Altmer) Taarie </option>
+                    <option value="(Female Nord) Temba Wide-Arm"> (Female Nord) Temba Wide-Arm </option>
+                    <option value="(Female Nord) Uthgerd, the Unbroken"> (Female Nord) Uthgerd, the Unbroken </option>
+                    <option value="(Female Imperial) Viola Giordano"> (Female Imperial) Viola Giordano </option>
+                    <option value="(Female Nord) Ysolda"> (Female Nord) Ysolda </option>
+                    <option value="(Male Breton) Ainethach"> (Male Breton) Ainethach </option>
+                    <option value="(Male Nord) Angrenor Once-Honored"> (Male Nord) Angrenor Once-Honored </option>
+                    <option value="(Male Nord) Argis the Bulwark"> (Male Nord) Argis the Bulwark </option>
+                    <option value="(Male Dunmer) Athis"> (Male Dunmer) Athis </option>
+                    <option value="(Male Nord) Balimund"> (Male Nord) Balimund </option>
+                    <option value="(Male Nord) Belrand"> (Male Nord) Belrand </option>
+                    <option value="(Male Nord) Benor"> (Male Nord) Benor </option>
+                    <option value="(Male Nord) Calder"> (Male Nord) Calder </option>
+                    <option value="(Male Breton) Cosnach"> (Male Breton) Cosnach </option>
+                    <option value="(Male Argonian) Derkeethus"> (Male Argonian) Derkeethus </option>
+                    <option value="(Male Nord) Farkas"> (Male Nord) Farkas </option>
+                    <option value="(Male Nord) Filnjar"> (Male Nord) Filnjar </option>
+                    <option value="(Male Orc) Gat gro-Shargakh"> (Male Orc) Gat gro-Shargakh </option>
+                    <option value="(Male Orc) Ghorbash, the Iron Hand"> (Male Orc) Ghorbash, the Iron Hand </option>
+                    <option value="(Male Nord) Gregor"> (Male Nord) Gregor </option>
+                    <option value="(Male Imperial) Marcurio"> (Male Imperial) Marcurio </option>
+                    <option value="(Male Nord) Halbarn Iron-Fur"> (Male Nord) Halbarn Iron-Fur </option>
+                    <option value="(Male Orc) Moth gro-Bagol"> (Male Orc) Moth gro-Bagol </option>
+                    <option value="(Male Breton) Octieve San"> (Male Breton) Octieve San </option>
+                    <option value="(Male Breton) Omluag"> (Male Breton) Omluag </option>
+                    <option value="(Male Nord) Odfel"> (Male Nord) Odfel </option>
+                    <option value="(Male Nord) Onmund"> (Male Nord) Onmund </option>
+                    <option value="(Male Imperial) Pavo Attius"> (Male Imperial) Pavo Attius </option>
+                    <option value="(Male Breton) Perth"> (Male Breton) Perth </option>
+                    <option value="(Male Imperial) Quintus Navale"> (Male Imperial) Quintus Navale </option>
+                    <option value="(Male Dunmer) Revyn Sadri"> (Male Dunmer) Revyn Sadri </option>
+                    <option value="(Male Nord) Roggi Knot-Beard"> (Male Nord) Roggi Knot-Beard </option>
+                    <option value="(Male Dunmer) Romlyn Dreth"> (Male Dunmer) Romlyn Dreth </option>
+                    <option value="(Male Argonian) Scouts-Many-Marshes"> (Male Argonian) Scouts-Many-Marshes </option>
+                    <option value="(Male Dunmer) Sondas Drenim"> (Male Dunmer) Sondas Drenim </option>
+                    <option value="(Male Imperial) Sorex Vinius"> (Male Imperial) Sorex Vinius </option>
+                    <option value="(Male Nord) Stenvar"> (Male Nord) Stenvar </option>
+                    <option value="(Male Nord) Torvar"> (Male Nord) Torvar </option>
+                    <option value="(Male Nord) Vilkas"> (Male Nord) Vilkas </option>
+                    <option value="(Male Nord) Vorstag"> (Male Nord) Vorstag </option>
+                    <option value="(Male Nord) Wilhelm"> (Male Nord) Wilhelm </option>
+                </select>
+                <br>
+                <!-- CHILDREN -->
+                <label for="children">  Children (Choose Two Only) </label>
+                <select id="first-son-daughter" name="first-son-daughter" required> 
+                    <option value=""> Choose </option>
+                    <option value="None"> None </option>
+                    <option value="Alesan (Dawnstar)"> Alesan (Dawnstar) </option>
+                    <option value="Blaise (Solitude)"> Blaise (Solitude) </option>
+                    <option value="Lucia (Whiterun)"> Lucia (Whiterun) </option>
+                    <option value="Sofie (Windhelm)"> Sofie (Windhelm) </option>
+                    <option value="Runa Fair-Shield (Orphanage)"> Runa Fair-Shield (Orphanage) </option>
+                    <option value="Hroar (Orphanage)"> Hroar (Orphanage) </option>
+                    <option value="Samuel (Orphanage)"> Samuel (Orphanage) </option>
+                    <option value="Francois Beaufort (Orphanage)"> Francois Beaufort (Orphanage) </option>
+                    <option value="Other Children (Parent(s) died)"> Other Children (Parent(s) died) </option>
+                </select>
+                <select id="second-son-daughter" name="second-son-daughter" required> 
+                    <option value=""> Choose </option>
+                    <option value="None"> None </option>
+                    <option value="Alesan (Dawnstar)"> Alesan (Dawnstar) </option>
+                    <option value="Blaise (Solitude)"> Blaise (Solitude) </option>
+                    <option value="Lucia (Whiterun)"> Lucia (Whiterun) </option>
+                    <option value="Sofie (Windhelm)"> Sofie (Windhelm) </option>
+                    <option value="Runa Fair-Shield (Orphanage)"> Runa Fair-Shield (Orphanage) </option>
+                    <option value="Hroar (Orphanage)"> Hroar (Orphanage) </option>
+                    <option value="Samuel (Orphanage)"> Samuel (Orphanage) </option>
+                    <option value="Francois Beaufort (Orphanage)"> Francois Beaufort (Orphanage) </option>
+                    <option value="Other Children (Parent(s) died)"> Other Children (Parent(s) died) </option>
+                </select>
+
+                <!-- HOUSES -->
+                <fieldset id="houses-list" class="content-block">
+                    <legend> Houses </legend>
+                    <label for="breezehome"> 
+                        <input type="checkbox" id="houses" name="houses" value="Breezehome (Whiterun)"> Breezehome (Whiterun) 
+                    </label>
+                    <label for="hjerim"> 
+                        <input type="checkbox" id="houses" name="houses" value="Hjerim (Windhelm)"> Hjerim (Windhelm) 
+                    </label>
+                    <label for="honeyside"> 
+                        <input type="checkbox" id="houses" name="houses" value="Honeyside (Riften)"> Honeyside (Riften) 
+                    </label>
+                    <label for="proudspire-manor"> 
+                        <input type="checkbox" id="houses" name="houses" value="Proudspire Manor (Solitude)"> Proudspire Manor (Solitude) 
+                    </label>
+                    <label for="severin-manor"> 
+                        <input type="checkbox" id="houses" name="houses" value="Severin Manor (Solstheim)"> Severin Manor (Solstheim)
+                    </label>
+                    <label for="vlindrel-hall"> 
+                        <input type="checkbox" id="houses" name="houses" value="Vlindrel Hall (Markarth)"> Vlindrel Hall (Markarth) 
+                    </label>
+                    <label for="windstad-manor"> 
+                        <input type="checkbox" id="houses" name="houses" value="Windstad Manor (Hjaalmarch)"> Windstad Manor (Hjaalmarch) 
+                    </label>
+                    <label for="lakeview-manor"> 
+                        <input type="checkbox" id="houses" name="houses" value="Lakeview Manor (Falkreath)"> Lakeview Manor (Falkreath) 
+                    </label>
+                    <label for="heljarchen-hall"> 
+                        <input type="checkbox" id="houses" name="houses" value="Heljarchen Hall (The Pale)"> Heljarchen Hall (The Pale)  
+                    </label>
+                    <label for="other-mods"> 
+                        Alternative House: <input type="text" id="other-house" name="other-house" value=""> 
+                    </label>
+                </fieldset>
+            </fieldset>
+                                            
+            <!-- FORM BUTTONS -->
+            <fieldset id="export-data" class="content-block">
+                <!-- BACKSTORY -->
+                <label for="backstory"> Backstory (About your char) </label>
+                <textarea id="backstory" name="backstory" maxlength="300"></textarea>
+
+                <legend> Export Your Character </legend>
+                <input type="reset" value="Reset Options">
+                <input type="submit" value="Export Character">
+            </fieldset>
+        </form>
+    </main>
+</section>
+
+<script type="text/javascript" src="generate-char.js"> </script>
+</body>
+</html>
+
